@@ -1,0 +1,20 @@
+:root {
+	--accent: #ff7605;
+
+	--fontFamily: 'Montserrat', sans-serif;
+	--roboto: 'Roboto', sans-serif;
+	--inter: 'Inter', sans-serif;
+	--background: #e3edf7;
+	--gray: #a3a7ab;
+	--white: #fff;
+
+	--shadowActive: inset 3px 3px 7px 0 rgba(136, 165, 191, 0.48),
+		inset -3px -3px 7px 0 #fff;
+	--shadowNoActive: 4px 2px 16px 0 rgba(136, 165, 191, 0.48),
+		-4px -2px 16px 0 #fff;
+
+	--border: 1px solid var(--white);
+
+	--text-white-color: #fff;
+	--text-black-color: #000;
+}

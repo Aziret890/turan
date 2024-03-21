@@ -10,6 +10,9 @@
 	font-family: 'Montserrat', 'Gill Sans', 'Gill Sans MT', Calibri,
 		'Trebuchet MS', sans-serif;
 }
+body {
+	background: #e3edf7;
+}
 
 button,
 label,
@@ -56,4 +59,27 @@ html {
 	max-width: 1280px;
 	margin: 0 auto;
 	padding: 0 20px;
+}
+.link--items__border {
+	box-shadow: 4px 2px 16px 0px #88a5bf7a;
+	background: #e3edf7;
+	transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+	border: 1px solid #ffffff;
+
+	&.active {
+		box-shadow: 3px 3px 7px 0px #88a5bf7a inset;
+		background: #e3edf7;
+		border: 1px solid #ffffff;
+	}
+}
+
+.link__items {
+	box-shadow: 4px 2px 16px 0px #88a5bf7a;
+	background: #e3edf7;
+	transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+	&.active {
+		box-shadow: 3px 3px 7px 0px #88a5bf7a inset;
+		background: #e3edf7;
+	}
 }

@@ -8,6 +8,8 @@
 	--gray: #a3a7ab;
 	--white: #fff;
 
+	--linear: linear-gradient(210.55deg, #ebf2f9 19.14%, #c6d7eb 154.68%);
+
 	--shadowActive: inset 3px 3px 7px 0 rgba(136, 165, 191, 0.48),
 		inset -3px -3px 7px 0 #fff;
 	--shadowNoActive: 4px 2px 16px 0 rgba(136, 165, 191, 0.48),
@@ -17,4 +19,8 @@
 
 	--text-white-color: #fff;
 	--text-black-color: #000;
+
+	--radius24: 24px;
+	--radius16: 16px;
+	--radius20: 20px;
 }

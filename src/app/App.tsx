@@ -1,0 +1,20 @@
+import Footer from '../widgets/Footer'
+import Header from '../widgets/Header'
+import './assets/App.scss'
+import MainRoutes from './routes'
+import { ToastContainer } from 'react-toastify'
+
+function App() {
+	return (
+		<>
+			<Header />
+			<main>
+				<MainRoutes />
+			</main>
+			<Footer />
+			<ToastContainer />
+		</>
+	)
+}
+
+export default App

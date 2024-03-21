@@ -1,4 +1,8 @@
-
+import styles from "./index.module.scss";
 export default function Footer() {
-	return <div>Footer</div>
+  return (
+    <footer className="container mt-[100px]">
+      <h1>footer</h1>
+    </footer>
+  );
 }

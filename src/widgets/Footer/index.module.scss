@@ -1,0 +1,31 @@
+.footerInfo {
+  max-width: 788px;
+}
+.footerBrandBlock {
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 30px;
+  box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48),
+    -4px -2px 16px 0px rgb(255, 255, 255);
+  background: rgb(227, 237, 247);
+  width: 50px;
+  height: 50px;
+}
+.footerUl {
+  li {
+    display: flex;
+    gap: 13px;
+  }
+}
+.footerCol {
+  h2 {
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0);
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase;
+  }
+}

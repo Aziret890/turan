@@ -1,0 +1,27 @@
+<svg width="35.000000" height="39.000000" viewBox="0 0 35 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<filter id="filter_960_4490_dd" x="-0.000977" y="-0.311035" width="34.688965" height="38.621948" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+			<feOffset dx="1" dy="1"/>
+			<feGaussianBlur stdDeviation="1.33333"/>
+			<feComposite in2="hardAlpha" operator="out" k2="-1" k3="1"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+			<feBlend mode="normal" in2="BackgroundImageFix" result="effect_dropShadow_1"/>
+			<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+			<feOffset dx="-1" dy="-1"/>
+			<feGaussianBlur stdDeviation="1.33333"/>
+			<feComposite in2="hardAlpha" operator="out" k2="-1" k3="1"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+			<feBlend mode="normal" in2="effect_dropShadow_1" result="effect_dropShadow_2"/>
+			<feBlend mode="normal" in="SourceGraphic" in2="effect_dropShadow_2" result="shape"/>
+		</filter>
+	</defs>
+	<g filter="url(#filter_960_4490_dd)">
+		<path id="Vector" d="M25.72 13.08C26.15 13.08 26.57 13.17 26.96 13.35C27.35 13.53 27.69 13.79 27.97 14.11C28.25 14.43 28.45 14.81 28.57 15.22C28.69 15.63 28.71 16.07 28.65 16.49L26.79 28.54C26.63 29.59 26.1 30.55 25.29 31.24C24.49 31.93 23.47 32.31 22.4 32.31L12.27 32.31C11.21 32.31 10.19 31.93 9.38 31.24C8.58 30.55 8.05 29.59 7.89 28.54L6.03 16.49C5.96 16.07 5.99 15.63 6.11 15.22C6.23 14.81 6.43 14.43 6.71 14.11C6.99 13.79 7.33 13.53 7.72 13.35C8.11 13.17 8.53 13.08 8.95 13.08L25.72 13.08Z" stroke="#000000" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round"/>
+		<path id="Vector" d="M12.9 17.52L12.9 10.12C12.9 8.94 13.37 7.82 14.2 6.98C15.03 6.15 16.16 5.68 17.34 5.68C18.51 5.68 19.64 6.15 20.48 6.98C21.31 7.82 21.78 8.94 21.78 10.12L21.78 " stroke="#000000" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round" stroke-linecap="round"/>
+	</g>
+</svg>

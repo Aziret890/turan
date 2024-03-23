@@ -3,6 +3,7 @@ import BrandBlock from "../../widgets/brandSwipper/Index";
 import Hero from "../../components/slider/slider";
 import BrandRout from "../../components/slider/routesBrand/Index";
 import Accessory from "../../components/accessory/Accessory";
+import AllProduct from "../../widgets/AllProduct/Index";
 
 function HomePage() {
   return (
@@ -11,6 +12,7 @@ function HomePage() {
       <BrandRout />
       <BrandBlock />
       <Accessory />
+      <AllProduct />
     </div>
   );
 }

@@ -1,7 +1,5 @@
 import AccessoryChild from "./AccessoryChild";
 import "./Accessory.scss";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 function Accessory() {
   return (
     <section>

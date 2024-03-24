@@ -1,0 +1,74 @@
+.filter__content {
+  position: relative;
+  .filter__content__block {
+    nav {
+      box-sizing: border-box;
+      border-radius: 20px;
+      box-shadow: 10px 10px 64px 0px rgba(18, 61, 101, 0.3),
+        -16px -16px 40px 0px rgba(255, 255, 255, 0.8);
+      background: linear-gradient(
+        199.07deg,
+        rgb(235, 242, 249) 19.397%,
+        rgb(198, 215, 235) 81.673%
+      );
+      width: 1252px;
+      height: 61px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+    }
+  }
+}
+.modal__block {
+  position: absolute;
+  right: 0;
+  top: -0%;
+  padding: 25px;
+  box-sizing: border-box;
+  border-radius: 0px 0px 20px 20px;
+  width: 410px;
+  height: 100vh;
+  box-shadow: 16px 16px 64px 0px rgba(18, 61, 101, 0.48),
+    -8px -8px 40px 0px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(
+    199.07deg,
+    rgb(235, 242, 249) 19.015%,
+    rgb(198, 215, 235) 192.258%
+  );
+  h2 {
+    color: rgb(0, 0, 0);
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+  &-inp {
+    box-sizing: border-box;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 16px;
+    padding: 12px 15px;
+    min-width: 120px;
+    background: rgb(229, 237, 247);
+  }
+  h3 {
+    color: rgb(0, 0, 0);
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+  button {
+    color: rgb(0, 0, 0);
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+}

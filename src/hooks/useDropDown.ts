@@ -1,33 +1,26 @@
-'use client';
-import { useState, useCallback, useEffect, useRef } from 'react';
-import { IconType } from 'react-icons';
+import { useState, useCallback, useEffect, useRef } from "react";
 
 export interface UseDropDownProps {
-  initialSelectedItem?: string | IconType | JSX.Element;
+  initialSelectedItem?: string;
   items: string[];
+  storage?: string | null;
 }
 
-export const useDropDown = ({ initialSelectedItem, items }: UseDropDownProps) => {
-  const [selectedItem, setSelectedItem] = useState<string | JSX.Element | undefined>(() => {
-    if (typeof initialSelectedItem === 'undefined') {
-      const storedItem = JSON.parse(localStorage.getItem('selectedItem') || '');
-      return storedItem || undefined;
-    }
-
-    if (typeof initialSelectedItem === 'function') {
-      return initialSelectedItem({});
-    }
-    return initialSelectedItem;
-  });
+export const useDropDown = ({
+  initialSelectedItem,
+  items,
+  storage = null,
+}: UseDropDownProps) => {
+  const [selectedItem, setSelectedItem] = useState(initialSelectedItem);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
 
   const handleSelectItem = useCallback(
-    (data?: string) => {
-      if (typeof selectedItem === 'string') {
-        setSelectedItem(data);
-        localStorage.setItem('selectedItem', data || '');
+    (data: string) => {
+      if (storage !== null) {
+        localStorage.setItem(storage, JSON.stringify(data));
       }
+      setSelectedItem(data);
       setIsOpen(false);
     },
     [setIsOpen, selectedItem]
@@ -43,7 +36,10 @@ export const useDropDown = ({ initialSelectedItem, items }: UseDropDownProps) =>
 
   const handleDocumentClick = useCallback(
     (event: MouseEvent) => {
-      if (dropDownRef.current && !dropDownRef.current.contains(event.target as Node)) {
+      if (
+        dropDownRef.current &&
+        !dropDownRef.current.contains(event.target as Node)
+      ) {
         closeDropDown();
       }
     },
@@ -51,18 +47,20 @@ export const useDropDown = ({ initialSelectedItem, items }: UseDropDownProps) =>
   );
 
   useEffect(() => {
-    document.addEventListener('click', handleDocumentClick);
-
-    return () => {
-      document.removeEventListener('click', handleDocumentClick);
-    };
-  }, [handleDocumentClick]);
+    if (storage !== null) {
+      const dataWithStorage =
+        JSON.parse(localStorage.getItem(storage)!) || initialSelectedItem;
+      setSelectedItem(dataWithStorage);
+    }
+  }, []);
 
   useEffect(() => {
-    if (typeof initialSelectedItem === 'string') {
-      localStorage.setItem('selectedItem', initialSelectedItem);
-    }
-  }, [initialSelectedItem]);
+    document.addEventListener("click", handleDocumentClick);
+
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, [handleDocumentClick]);
 
   return {
     selectedItem,

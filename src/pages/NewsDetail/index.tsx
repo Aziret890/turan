@@ -1,3 +1,9 @@
+import NewDetalPageDetal from "../../widgets/news/components/NewDetalPageDetal";
+
 export default function NewsDetail() {
-	return <div>NewsDetail</div>
+  return (
+    <>
+      <NewDetalPageDetal />
+    </>
+  );
 }

@@ -1,6 +1,7 @@
 import EmtityBadket from "../../components/emtityBasket/EmtityBadket";
 import Recomindation from "../../components/recomindation";
 import BlockBasket from "../../store/blockBasket/BlockBasket";
+import Pay from "../../widgets/Pay/Pay";
 
 export default function BasketPage() {
   return (
@@ -11,6 +12,7 @@ export default function BasketPage() {
       <EmtityBadket />
       <Recomindation />
       <BlockBasket />
+      <Pay />
     </>
   );
 }

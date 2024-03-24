@@ -3,83 +3,83 @@
 @tailwind utilities;
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-size: 100%;
-	font-family: 'Montserrat', 'Gill Sans', 'Gill Sans MT', Calibri,
-		'Trebuchet MS', sans-serif;
-}
-body {
-	background: #e3edf7;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  font-family: "Montserrat", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
 }
 
 button,
 label,
 hr {
-	border: 0;
-	outline: 0;
-	background: 0;
-	cursor: pointer;
+  border: 0;
+  outline: 0;
+  background: 0;
+  cursor: pointer;
 }
 
 input,
 select,
 textarea {
-	border: 0;
-	outline: 0;
-	background: 0;
+  border: 0;
+  outline: 0;
+  background: 0;
 }
 
 a,
 li,
 ul {
-	list-style: none;
-	text-decoration: none;
+  list-style: none;
+  text-decoration: none;
 }
 
 body {
-	overflow-x: hidden;
-	overflow-y: scroll;
-	width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
 }
 
 .wrapper {
-	width: 100%;
-	position: relative;
-	overflow: hidden;
-	min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 }
 html {
-	scroll-behavior: smooth;
-	height: 100%;
+  scroll-behavior: smooth;
+  height: 100%;
 }
 
 .container {
-	max-width: 1280px;
-	margin: 0 auto;
-	padding: 0 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 .link--items__border {
-	box-shadow: 4px 2px 16px 0px #88a5bf7a;
-	background: #e3edf7;
-	transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-	border: 1px solid #ffffff;
+  box-shadow: 4px 2px 16px 0px #88a5bf7a;
+  background: #e3edf7;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  border: 1px solid #ffffff;
 
-	&.active {
-		box-shadow: 3px 3px 7px 0px #88a5bf7a inset;
-		background: #e3edf7;
-		border: 1px solid #ffffff;
-	}
+  &.active {
+    box-shadow: 3px 3px 7px 0px #88a5bf7a inset;
+    background: #e3edf7;
+    border: 1px solid #ffffff;
+  }
 }
 
 .link__items {
-	box-shadow: 4px 2px 16px 0px #88a5bf7a;
-	background: #e3edf7;
-	transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: 4px 2px 16px 0px #88a5bf7a;
+  background: #e3edf7;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-	&.active {
-		box-shadow: 3px 3px 7px 0px #88a5bf7a inset;
-		background: #e3edf7;
-	}
+  &.active {
+    box-shadow: 3px 3px 7px 0px #88a5bf7a inset;
+    background: #e3edf7;
+  }
+}
+body {
+  background: rgb(227, 237, 247);
 }

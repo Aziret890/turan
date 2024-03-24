@@ -1,0 +1,112 @@
+.block__basket-child {
+  border-radius: 24px;
+  width: 1249px;
+  height: 211px;
+  box-shadow: 16px 4px 64px 0px rgba(18, 61, 101, 0.2),
+    inset -8px -6px 80px 0px rgba(255, 255, 255, 0.18);
+  background: linear-gradient(
+    199.07deg,
+    rgb(235, 242, 249) 19.368%,
+    rgb(198, 215, 235) 89.884%
+  );
+  padding: 20px;
+  h1 {
+    margin: 0;
+  }
+  button {
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 8px 16px;
+    box-shadow: 16px 4px 64px 0px rgba(18, 61, 101, 0.2),
+      inset -8px -6px 80px 0px rgba(255, 255, 255, 0.18);
+    /* button color */
+    background: linear-gradient(
+      199.07deg,
+      rgb(235, 242, 249) 19.097%,
+      rgb(198, 215, 235) 168.273%
+    );
+  }
+  .block__basket-child-delete {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+  h1 {
+    color: rgb(0, 0, 0);
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 47px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+  p {
+    color: rgb(136, 136, 136);
+    font-family: Montserrat;
+    max-width: 691px;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+  h3 {
+    color: rgb(136, 136, 136);
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+  h2 {
+    color: rgb(0, 0, 0);
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+}
+.h1__basket {
+  color: rgb(0, 0, 0);
+  font-family: Montserrat;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 60px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.p__delete__basket {
+  color: rgb(1, 30, 184);
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 48px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+.button__basket__bay {
+  box-sizing: border-box;
+  border-radius: 20px;
+  width: 295px;
+  height: 61px;
+  box-shadow: 16px 16px 64px 0px rgba(18, 61, 101, 0.48),
+    -16px -16px 40px 0px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(
+    199.07deg,
+    rgb(235, 242, 249) 19.354%,
+    rgb(198, 215, 235) 93.88%
+  );
+}
+.h1__all-price{
+  color: rgb(0, 0, 0);
+font-family: Montserrat;
+font-size: 30px;
+font-weight: 600;
+line-height: 60px;
+letter-spacing: 0%;
+text-align: center;
+}

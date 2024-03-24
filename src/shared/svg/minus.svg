@@ -1,0 +1,37 @@
+<svg width="164.000000" height="164.000000" viewBox="0 0 164 164" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<filter id="filter_2618_3320_dd" x="0.000000" y="0.000000" width="164.000000" height="164.000000" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+			<feOffset dx="16" dy="4"/>
+			<feGaussianBlur stdDeviation="21.3333"/>
+			<feComposite in2="hardAlpha" operator="out" k2="-1" k3="1"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 0.070588 0 0 0 0 0.23922 0 0 0 0 0.39608 0 0 0 0.2 0"/>
+			<feBlend mode="normal" in2="BackgroundImageFix" result="effect_dropShadow_1"/>
+			<feBlend mode="normal" in="SourceGraphic" in2="effect_dropShadow_1" result="shape"/>
+			<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+			<feOffset dx="-8" dy="-6"/>
+			<feGaussianBlur stdDeviation="26.6667"/>
+			<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.18 0"/>
+			<feBlend mode="normal" in2="shape" result="effect_innerShadow_2"/>
+		</filter>
+		<linearGradient id="paint_linear_2618_3320_0" x1="88.178604" y1="34.285728" x2="54.888260" y2="131.368408" gradientUnits="userSpaceOnUse">
+			<stop offset="0.335303" stop-color="#EBF2F9"/>
+			<stop offset="1.000000" stop-color="#C6D7EB"/>
+		</linearGradient>
+		<linearGradient id="paint_linear_2618_3320_1" x1="50.938770" y1="60.000004" x2="105.673462" y2="92.099991" gradientUnits="userSpaceOnUse">
+			<stop offset="0.263331" stop-color="#FFFFFF"/>
+			<stop offset="0.507086" stop-color="#DBE6F2" stop-opacity="0.000000"/>
+			<stop offset="1.000000" stop-color="#8F9FAE"/>
+		</linearGradient>
+	</defs>
+	<g filter="url(#filter_2618_3320_dd)">
+		<rect id="Frame 189" rx="4.500000" width="35.000000" height="35.000000" transform="translate(48.500000 60.500000)" fill="url(#paint_linear_2618_3320_0)" fill-opacity="1.000000"/>
+		<path id="+" d="M66.76 79.19L74.19 79.19L74.19 76.84L66.76 76.84L66.76 69.51L64.24 69.51L64.24 76.84L56.8 76.84L56.8 79.19L64.24 79.19L64.24 86.48L66.76 86.48L66.76 79.19Z" fill="#000000" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</g>
+	<rect id="Frame 189" rx="4.500000" width="35.000000" height="35.000000" transform="translate(48.500000 60.500000)" stroke="url(#paint_linear_2618_3320_1)" stroke-opacity="1.000000" stroke-width="1.000000"/>
+</svg>

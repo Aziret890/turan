@@ -1,0 +1,140 @@
+.detalProduct {
+  h2 {
+    color: rgb(136, 136, 136);
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 60px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+  .detalProduct__content__left-top {
+    border-radius: 24px;
+    width: 615px;
+    height: 386px;
+    box-shadow: 16px 4px 64px 0px rgba(18, 61, 101, 0.2),
+      inset -8px -6px 80px 0px rgba(255, 255, 255, 0.18);
+    background: linear-gradient(
+      199.07deg,
+      rgb(235, 242, 249) 19.183%,
+      rgb(198, 215, 235) 143.62%
+    );
+  }
+  .detalProduct__content__left-child {
+    border-radius: 20px;
+    width: 135px;
+    height: 130px;
+    box-shadow: 16px 4px 64px 0px rgba(18, 61, 101, 0.2),
+      inset -8px -6px 80px 0px rgba(255, 255, 255, 0.18);
+    background: linear-gradient(
+      199.07deg,
+      rgb(235, 242, 249) 19.103%,
+      rgb(198, 215, 235) 166.558%
+    );
+  }
+  .detalProduct__content__left-review {
+    padding: 20px;
+    h1 {
+      margin: 0;
+      padding: 0;
+      color: rgb(0, 0, 0);
+      font-family: Montserrat;
+      font-size: 20px;
+      font-weight: 500;
+    }
+    p {
+      font-family: Montserrat;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 36px;
+    }
+    border-radius: 24px;
+
+    /* тень карточки товара */
+    box-shadow: 16px 4px 64px 0px rgba(18, 61, 101, 0.2),
+      inset -8px -6px 80px 0px rgba(255, 255, 255, 0.18);
+    /* фон карточек */
+    width: 614px;
+    height: 341px;
+    background: linear-gradient(
+      199.07deg,
+      rgb(235, 242, 249) -20.709%,
+      rgb(235, 242, 249) 9.069%,
+      rgb(224, 235, 249) 62.825%,
+      rgb(228, 238, 249) 71.041%,
+      rgb(198, 215, 235) 136.45%
+    );
+  }
+}
+.detalProduct__content__right {
+  p {
+    color: rgb(136, 136, 136);
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+  padding: 20px 30px;
+  border-radius: 24px;
+
+  /* тень карточки товара */
+  box-shadow: 16px 4px 64px 0px rgba(18, 61, 101, 0.2),
+    inset -8px -6px 80px 0px rgba(255, 255, 255, 0.18);
+  /* фон карточек */
+  width: 557px;
+  height: 1031px;
+  background: linear-gradient(
+    199.07deg,
+    rgb(235, 242, 249) -38.349%,
+    rgb(235, 242, 249) 4.456%,
+    rgb(224, 235, 249) 81.731%,
+    rgb(228, 238, 249) 93.542%,
+    rgb(198, 215, 235) 187.566%
+  );
+  h1 {
+    color: rgb(0, 0, 0);
+    font-family: Montserrat;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+  .detalProduct__content__right-button {
+    padding: 10px 20px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 16px;
+
+    background: rgb(227, 237, 247);
+  }
+  .detalProduct__content__right-buttonactive {
+    padding: 10px 20px;
+    margin: 0;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 16px;
+
+    /* пуш */
+    box-shadow: inset 7px 7px 7px 0px rgba(18, 61, 101, 0.14),
+      inset -7px -7px 7px 0px rgb(255, 255, 255);
+    /* пуш */
+    background: linear-gradient(
+      199.07deg,
+      rgb(235, 242, 249) 19.27%,
+      rgb(198, 215, 235) 118.21%
+    );
+  }
+  .detalProduct__content__right-button-bay {
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 15px 38px;
+    box-shadow: 16px 16px 64px 0px rgba(18, 61, 101, 0.48),
+      -16px -16px 40px 0px rgba(255, 255, 255, 0.8);
+    background: linear-gradient(
+      199.07deg,
+      rgb(235, 242, 249) 19.354%,
+      rgb(198, 215, 235) 93.88%
+    );
+  }
+}

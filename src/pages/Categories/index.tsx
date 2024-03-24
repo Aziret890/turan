@@ -1,3 +1,10 @@
+import CategoriesPage from "../../widgets/Categories/Index";
+import Filter from "../../components/Filter/Filter";
 export default function Categories() {
-	return <div>Categories</div>
+  return (
+    <>
+      <Filter />
+      <CategoriesPage />
+    </>
+  );
 }

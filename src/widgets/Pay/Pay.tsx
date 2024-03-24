@@ -7,9 +7,7 @@ import maesto from "../../shared/images/meastro.png";
 import mbank from "../../shared/images/mbank.png";
 import elsom from "../../shared/images/elsom.png";
 import optima from "../../shared/images/optima.png";
-
 function Pay() {
-  const [click, setClick] = useState<string>("");
   const data: object[] = [
     { images: [masterCard, visa, maesto], title: "Банковская карта" },
     { images: [mbank, elsom, optima], title: "Электронный кошелек" },

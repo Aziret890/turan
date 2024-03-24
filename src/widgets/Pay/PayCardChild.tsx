@@ -2,8 +2,9 @@ import React, { useState } from "react";
 interface IProps {
   images: [];
   title: string;
+  el: any;
 }
-function PayCardChild({ el }: IPors) {
+function PayCardChild({ el }: IProps) {
   const [click, setClick] = useState<string>("");
   return (
     <div className="pay__content__payCard">

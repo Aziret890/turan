@@ -15,17 +15,17 @@ function Pay() {
     { images: null, title: "Оформить рассрочку" },
   ];
   return (
-    <section className="pay">
+    <section className="pay ">
       <div className="container">
         <h1>Способ получения</h1>
-        <div className="pay__content">
+        <div className="pay__content mt-[58px]">
           <div className="pay__content__input">
             <input type="text" placeholder="Фамилия и имя" />
             <div className="pay__content__input-div flex justify-between gap-[25px] mt-4">
               <input type="text" placeholder="Email" />
               <input type="text" placeholder="Телефон" />
             </div>
-            <div className="pay__content__block">
+            <div className="pay__content__block mt-[88px]">
               <div className="pay__content__block-child">
                 <h1>Самовывоз</h1>
                 <div className="flex flex-col gap-3">
@@ -48,10 +48,12 @@ function Pay() {
               </div>
             </div>
           </div>
-          <div className="flex justify-between">
-            {data.map((el, inx) => (
-              <PayCardChild key={inx} el={el} />
-            ))}
+          <div className="mt-[158px]">
+            <div className="flex justify-between">
+              {data.map((el, inx) => (
+                <PayCardChild key={inx} el={el} />
+              ))}
+            </div>
           </div>
           {/* <div className="pay__content__payCard">
             <div

@@ -1,3 +1,9 @@
+import NewsComponetns from "../../widgets/news/components";
+import "../../widgets/news/styles.scss";
 export default function News() {
-	return <div>News</div>
+  return (
+    <section className="news">
+      <NewsComponetns />
+    </section>
+  );
 }

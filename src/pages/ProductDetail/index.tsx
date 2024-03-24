@@ -1,3 +1,9 @@
+import DetalProduct from "../../widgets/DetalProduct/DetalProduct";
+
 export default function ProductDetail() {
-	return <div>ProductDetail</div>
+  return (
+    <div>
+      <DetalProduct />
+    </div>
+  );
 }

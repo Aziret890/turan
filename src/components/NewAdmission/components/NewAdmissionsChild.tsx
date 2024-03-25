@@ -5,9 +5,16 @@ import phone from "../../../shared/images/apple14.png";
 import checkMark from "../../../shared/svg/checkMark.svg";
 import love from "../../../shared/svg/love.svg";
 import basket from "../../../shared/svg/basket.svg";
+import { useNavigate } from "react-router-dom";
 function NewAdmissionsChild() {
+  const nav = useNavigate();
   return (
-    <div className="newAdmissions__content1-child">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-duration={`${1 * 1300}`}
+      onClick={() => nav("/product/1")}
+      className="newAdmissions__content1-child"
+    >
       <div className="flex justify-around items-center mt-3">
         <div className="newColor">Новое</div>
         <img src={star} alt="" />

@@ -4,40 +4,53 @@ import phone from "../../shared/images/apple14.png";
 import star from "../../shared/images/starAll.png";
 import love from "../../shared/svg/love.svg";
 
-interface DataInfo {
-  images: string[];
-  title: string;
-  price: number;
-  guarantee: string;
-  screen: string;
-  screenTechnology: string;
-  numberOfCores: string;
-  infoProduct: string;
-  color?: string;
-}
+// interface DataInfo {
+//   images: string[];
+//   title: string;
+//   price: number;
+//   guarantee: string;
+//   screen: string;
+//   screenTechnology: string;
+//   numberOfCores: string;
+//   infoProduct: string;
+//   color?: string;
+// }
 function DetalProduct() {
   const [active, setActive] = useState<string>("");
-  const dataInfo: DataInfo = {
-    images: [phone, phone, phone],
-    title: "Apple IPhone 14 Pro Max ",
-    price: 75400,
-    guarantee: "",
-    screen: "",
-    screenTechnology: "",
-    numberOfCores: "",
-    infoProduct:
-      "Смартфон iPhone 14 в корпусе цвета Gold со встроенной памятью 128 Гб оснащен экраном диагональю 6,1 дюйма, выполненным по технологии OLED. Дисплей типа Super Retina XDR обладает разрешением 2532x1170 пикселей. В этой модели установлен шестиядерный процессор А15 Bionic. В девайсе ",
-  };
+  // const dataInfo: DataInfo = {
+  //   images: [phone, phone, phone],
+  //   title: "Apple IPhone 14 Pro Max ",
+  //   price: 75400,
+  //   guarantee: "",
+  //   screen: "",
+  //   screenTechnology: "",
+  //   numberOfCores: "",
+  //   infoProduct:
+  //     "Смартфон iPhone 14 в корпусе цвета Gold со встроенной памятью 128 Гб оснащен экраном диагональю 6,1 дюйма, выполненным по технологии OLED. Дисплей типа Super Retina XDR обладает разрешением 2532x1170 пикселей. В этой модели установлен шестиядерный процессор А15 Bionic. В девайсе ",
+  // };
   return (
     <section className="detalProduct">
       <div className="container">
         <h2>Главная / Каталог / Iphone / {"Ipnone 14 Pro max"}</h2>
         <div className="detalProduct__content flex justify-between">
           <div className="detalProduct__content__left">
-            <div className="detalProduct__content__left-top">
-              <img src={phone} alt="" />
+            <div className="detalProduct__content__left-top flex justify-center items-center">
+              <div className="w-[420px] h-[335px]">
+                <img
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                  }}
+                  src={phone}
+                  alt=""
+                />
+              </div>
             </div>
-            <div className="detalProduct__content__left-top-wrapper">
+            <div className="detalProduct__content__left-top-wrapper flex justify-between mt-[45px]">
+              <div className="detalProduct__content__left-child"></div>
+              <div className="detalProduct__content__left-child"></div>
+              <div className="detalProduct__content__left-child"></div>
               <div className="detalProduct__content__left-child"></div>
             </div>
             <div className="flex justify-start items-center mt-4 gap-[50px]">
@@ -73,6 +86,9 @@ function DetalProduct() {
               <img src={love} alt="" />
             </div>
             <h2>Характеристики:</h2>
+            <div>
+              <p>vwnm....{"cw"}</p>
+            </div>
           </div>
         </div>
       </div>

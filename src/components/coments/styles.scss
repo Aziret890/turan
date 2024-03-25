@@ -1,0 +1,84 @@
+.comenet__content {
+  &__input {
+    position: relative;
+    button {
+      border-radius: 20px;
+      width: 295px;
+      height: 61px;
+      box-shadow: 16px 16px 64px 0 rgba(18, 61, 101, 0.48),
+        -16px -16px 40px 0 rgba(255, 255, 255, 0.8);
+      background: linear-gradient(199deg, #ebf2f9 33.53%, #c6d7eb 100%);
+    }
+  }
+  .coment__content_none {
+    display: block;
+    padding: 15px 20px;
+    transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
+    transform: scale(0.9);
+    position: absolute;
+    top: -30pc;
+    left: 20%;
+    z-index: 2;
+    box-shadow: 6px 6px 20px 0 rgba(18, 61, 101, 0.35),
+      -6px -6px 10px 0 rgba(255, 255, 255, 0.8);
+    background: linear-gradient(199deg, #ebf2f9 33.53%, #c6d7eb 100%);
+    border-radius: 20px;
+    width: 764px;
+    height: 593px;
+    h1 {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 250%;
+      color: #000;
+    }
+    h2 {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 300%;
+      color: #000;
+    }
+    textarea {
+      box-shadow: inset 3px 3px 7px 0 rgba(136, 165, 191, 0.48),
+        inset -3px -3px 7px 0 #fff;
+      background: #e3edf7;
+      border: 1px solid #fff;
+      border-radius: 16px;
+      width: 713px;
+      height: 202px;
+      padding: 20px;
+    }
+  }
+  .coment__content {
+    display: none;
+  }
+  .comenet__content__child__block {
+    border-radius: 24px;
+    padding: 0px 20px 30px 20px;
+    width: 1249px;
+    height: 100%;
+    box-shadow: 16px 4px 64px 0 rgba(18, 61, 101, 0.2),
+      inset -8px -6px 80px 0 rgba(255, 255, 255, 0.18);
+    background: linear-gradient(
+      199deg,
+      #ebf2f9 10.9%,
+      #ebf2f9 27.78%,
+      #e0ebf9 58.26%,
+      #e4eef9 62.92%,
+      #c6d7eb 100%
+    );
+    h1 {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 300%;
+      color: #000;
+      text-align: start;
+    }
+    p {
+      font-family: var(--font-family);
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 165%;
+      color: #000;
+    }
+  }
+}

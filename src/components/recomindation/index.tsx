@@ -11,7 +11,6 @@ function Recomindation() {
       setData(res.data.filter((el) => el.rating >= 2))
     );
   }, []);
-  console.log(data);
   return (
     <div className="container">
       <div className="newAdmissions__content mt-14">

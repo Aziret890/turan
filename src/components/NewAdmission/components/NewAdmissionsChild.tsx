@@ -16,7 +16,6 @@ interface IProps {
 }
 function NewAdmissionsChild({ images, price, colors, id, rating }: IProps) {
   const nav = useNavigate();
-  console.log();
   return (
     <div
       data-aos="zoom-in-up"
@@ -30,7 +29,17 @@ function NewAdmissionsChild({ images, price, colors, id, rating }: IProps) {
         <Star count={rating} />
       </div>
       <div className="flex flex-col items-center mt-3">
-        <img src={`https://takmatov.pythonanywhere.com/${images}`} alt="" />
+        {images[0] == 1 || images[0].length > 15 ? (
+          <img
+            src={`https://takmatov.pythonanywhere.com/${images[0]}`}
+            alt=""
+          />
+        ) : (
+          <img
+            src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ="
+            alt=""
+          />
+        )}
         <div className="flex justify-between gap-[116px] mb-3 items-center">
           <div className="flex items-end gap-2">
             <img src={checkMark} alt="" />

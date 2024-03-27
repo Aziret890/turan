@@ -104,7 +104,13 @@ function Star({ count }: IProps) {
     },
   ];
   let resData: [] = data.filter((el) => el.rating == count);
-  return <div className="">{resData.map((el) => el.res)}</div>;
+  return (
+    <div className="">
+      {resData.map((el, inx) => (
+        <React.Fragment key={inx}>{el.res}</React.Fragment>
+      ))}
+    </div>
+  );
 }
 
 export default Star;

@@ -3,7 +3,6 @@ import "react-dropdown/style.css";
 import DropDown from "../../shared/ui/DropDown";
 import close from "../../shared/svg/close.svg";
 import "./styles.scss";
-import { set } from "zod";
 function Filter() {
   const [open, setOpen] = useState(false);
   const config = {

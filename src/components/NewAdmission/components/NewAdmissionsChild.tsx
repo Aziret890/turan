@@ -12,7 +12,7 @@ interface IProps {
   images: [];
   price: number;
   colors?: string[];
-  rating: number
+  rating: number;
 }
 function NewAdmissionsChild({ images, price, colors, id, rating }: IProps) {
   const nav = useNavigate();

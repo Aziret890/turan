@@ -6,7 +6,23 @@ import checkMark from "../../shared/svg/checkMark.svg";
 import love from "../../shared/svg/love.svg";
 import basket from "../../shared/svg/basket.svg";
 import NewAdmissionsChild from "./components/NewAdmissionsChild";
+import { useEffect, useState } from "react";
+import axios from "axios";
+interface IProps {
+  id: number;
+  images: string[];
+  price: number;
+  colors: string[];
+}
 function NewAdmissions() {
+  const [data, setData] = useState<[]>([]);
+  useEffect(() => {
+    axios("https://takmatov.pythonanywhere.com/products").then((res) =>
+      setData(res.data)
+    );
+  }, []);
+  console.log(data);
+
   return (
     <div className="newAdmissions__content mt-14">
       <div className="flex justify-between">
@@ -55,8 +71,15 @@ function NewAdmissions() {
             </div>
           </div>
         </div> */}
-        <NewAdmissionsChild />
-        <NewAdmissionsChild />
+        {data?.map((el) => (
+          <NewAdmissionsChild
+            key={el.id}
+            price={el.price}
+            images={el.images[0]}
+            id={el.id}
+            rating={el.rating}
+          />
+        ))}
       </div>
     </div>
   );

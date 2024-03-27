@@ -6,7 +6,6 @@ import close from "../../shared/svg/close.svg";
 function Coments() {
   const [open, setOpen] = useState<string>("");
   const [inputValue, setInputValue] = useState<string>("");
-  console.log(inputValue);
 
   return (
     <section>

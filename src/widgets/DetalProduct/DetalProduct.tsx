@@ -4,6 +4,7 @@ import phone from "../../shared/images/apple14.png";
 import star from "../../shared/images/starAll.png";
 import love from "../../shared/svg/love.svg";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface DataInfo {
   images: string[];
@@ -14,6 +15,7 @@ interface DataInfo {
   characteristics: object[];
 }
 function DetalProduct() {
+  const nav = useNavigate();
   const [valueImage, setValueImage] = useState<number>(0);
   const [active, setActive] = useState<string>("");
   const [data, setData] = useState<object>({});
@@ -22,11 +24,14 @@ function DetalProduct() {
       .get<DataInfo>("https://takmatov.pythonanywhere.com/product/15/")
       .then((res) => setData(res.data));
   }, []);
-  console.log(data);
   return (
     <section className="detalProduct">
       <div className="container">
-        <h2>Главная / Каталог / Iphone / {data.name}</h2>
+        <h2>
+          {" "}
+          <span onClick={() => nav("/")}> Главная </span>/ Каталог / Iphone /{" "}
+          {data.name}
+        </h2>
         <div className="detalProduct__content flex justify-between">
           <div className="detalProduct__content__left">
             <div className="detalProduct__content__left-top flex justify-center items-center">

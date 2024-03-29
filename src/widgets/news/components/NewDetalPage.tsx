@@ -1,16 +1,19 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 interface IProps {
-
-  element:{
+  element: {
     images: string;
     info: string;
     infoDetal: string;
-  }
+  };
 }
 
 function NewDetalPage({ element }: IProps) {
-
+  // const [data, setData] = useState<[]>([]);
+  // useEffect(() => {
+  //   axios.get("");
+  // }, []);
   return (
     <div className="news__content__block-child">
       <img src={element.images} alt="" />

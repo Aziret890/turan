@@ -1,7 +1,3 @@
-import React from "react";
-import arrow from "../../shared/svg/arrow.svg";
-import star from "../../../shared/images/starAll.png";
-import phone from "../../../shared/images/apple14.png";
 import checkMark from "../../../shared/svg/checkMark.svg";
 import love from "../../../shared/svg/love.svg";
 import basket from "../../../shared/svg/basket.svg";
@@ -28,7 +24,7 @@ function NewAdmissionsChild({ images, price, colors, id, rating }: IProps) {
         {/* <img src={star} alt="" /> */}
         <Star count={rating} />
       </div>
-      <div className="flex flex-col items-center mt-3">
+      <div className="flex flex-col items-center mt-3 max-h-[40px]">
         {images[0] == 1 || images[0].length > 15 ? (
           <img
             src={`https://takmatov.pythonanywhere.com/${images[0]}`}

@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios";
 import Cookie from "js-cookie";
+import { toast } from "react-toastify";
 
 export default function Registraion() {
+  const notify = () => toast.success("успешная регистрация!");
+
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -32,7 +35,8 @@ export default function Registraion() {
       const { jwt, ...user } = data;
       Cookie.set("jwt", jwt);
       if (response.status >= 200 && response.status <= 299) {
-        alert("Успешная регитрация");
+        // alert("Успешная регитрация");
+        notify();
       }
       return user;
     } catch (error) {

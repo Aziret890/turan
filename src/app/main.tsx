@@ -4,6 +4,7 @@ import Providers from "./providers.tsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
 AOS.init();
 
 AOS.init({
@@ -28,5 +29,6 @@ AOS.init({
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Providers>
     <App />
+    <ToastContainer />
   </Providers>
 );

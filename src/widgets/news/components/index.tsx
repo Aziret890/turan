@@ -1,12 +1,14 @@
 import newImages from "../../../shared/images/newImages2.png";
 import "../styles.scss";
 import NewDetalPage from "../components/NewDetalPage";
+import { useNavigate } from "react-router-dom";
 interface IProps {
-  images: any;
+  images: string;
   info: string;
   infoDetal: string;
 }
 function NewComponetns() {
+  const nav = useNavigate();
   const data = [
     {
       images: newImages,
@@ -18,9 +20,11 @@ function NewComponetns() {
   return (
     <div className="container">
       <div className="news__content">
-        <h3>Главная / Новости</h3>
+        <h3>
+          <span onClick={() => nav("/")}>Главная</span> / Новости
+        </h3>
         <div className="news__content__block">
-          {data.map((el:IProps, indx:number) => (
+          {data.map((el: IProps, indx: number) => (
             <NewDetalPage key={indx} element={el} />
           ))}
         </div>

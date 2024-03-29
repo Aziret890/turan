@@ -21,14 +21,12 @@ export default function Login() {
                 <p>
                   <span>Впервые у нас?</span>
                 </p>
-                <Link to={"/"}>
-                  <h4>Войти</h4>
+                <Link to={"/registration"}>
+                  <h4>Регистрация</h4>
                 </Link>
               </div>
             </div>
-            <div>
-              <button>Регистрация</button>
-            </div>
+            <button>Войти</button>
             <img src={registrationElement} alt="" />
           </div>
         </div>

@@ -3,6 +3,7 @@ import App from "./App.tsx";
 import Providers from "./providers.tsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Provider } from "react-redux";
 AOS.init();
 
 AOS.init({

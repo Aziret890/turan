@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Star from "../../Star/Star";
 interface IProps {
   id: number;
-  images: [];
+  images: any[];
   price: number;
   colors?: string[];
   rating: number;

@@ -21,7 +21,7 @@ export default function ProtectedRoute({ Page, privates }: IProps) {
     }
 
     if (privates && !currentUser) {
-      navigate("/basket");
+      navigate("/login");
     }
   }, [currentUser, privates, location, navigate]);
 

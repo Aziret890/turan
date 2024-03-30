@@ -1,9 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import "./styles.scss";
 export default function AboutUs() {
+  const nav = useNavigate();
   return (
     <section className="aboutUs">
       <div className="container">
-        <h3>Главная / О нас</h3>
+        <h3>
+          <span
+            className="cursor-pointer hover:bg-slate-200"
+            onClick={() => nav("/")}
+          >
+            Главная
+          </span>{" "}
+          / О нас
+        </h3>
         <div className="aboutUs__content">
           <p>
             <br />

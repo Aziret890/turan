@@ -15,19 +15,29 @@ const variants = {
 
 interface IProps2<T> {
   items: T[];
-  links: T[];
+  links?: T[];
+  func?: ((d: string, t: string) => void)[] | ((d: string, t: string) => void);
+  type?: string;
 }
 
 interface IProps<T> extends IProps2<T> {
   initialSelectedItem?: string;
+  storage?: string | null;
 }
 
-const DropDown = ({ initialSelectedItem, items, links }: IProps<string>) => {
+const DropDown = ({
+  initialSelectedItem,
+  items,
+  links,
+  storage,
+  func,
+  type,
+}: IProps<string>) => {
   const { selectedItem, isOpen, toggleDropDown, onSelectItem, dropDownRef } =
     useDropDown({
       initialSelectedItem,
       items: items || links,
-      storage: "drop",
+      storage: storage,
     });
 
   return (
@@ -85,7 +95,19 @@ const DropDown = ({ initialSelectedItem, items, links }: IProps<string>) => {
                   </Link>
                 )}
 
-                {!links && (
+                {func && !links && (
+                  <button
+                    onClick={() => {
+                      toggleDropDown();
+                      if (Array.isArray(func)) func[idx](link, type!);
+                      if (!Array.isArray(func)) func(link, type!);
+                      onSelectItem(link);
+                    }}
+                  >
+                    {link}
+                  </button>
+                )}
+                {!links && !func && (
                   <button
                     onClick={() => {
                       toggleDropDown();

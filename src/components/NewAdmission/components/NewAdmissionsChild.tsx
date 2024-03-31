@@ -3,6 +3,9 @@ import love from "../../../shared/svg/love.svg";
 import basket from "../../../shared/svg/basket.svg";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Star/Star";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Cookies from "js-cookie";
 interface IProps {
   id: number;
   images: any[];
@@ -10,7 +13,20 @@ interface IProps {
   colors?: string[];
   rating: number;
 }
+
 function NewAdmissionsChild({ images, price, colors, id, rating }: IProps) {
+  const userJwt = Cookies.get("jwt");
+  const [basketId, setBAsketID] = useState(null);
+  console.log(userJwt);
+
+  useEffect(() => {
+    if (basketId != null) {
+      axios.post(
+        `https://takmatov.pythonanywhere.com/addProductToBasket/${basketId}`,
+        userJwt
+      );
+    }
+  }, []);
   const nav = useNavigate();
   return (
     <div
@@ -52,7 +68,11 @@ function NewAdmissionsChild({ images, price, colors, id, rating }: IProps) {
           </p>
           <div className="flex justify-between gap-[60px] mt-5">
             <button className="p-10">Быстрый заказ</button>
-            <img src={basket} alt="" />
+            <img
+              onClick={(e) => (e.stopPropagation(), setBAsketID(id))}
+              src={basket}
+              alt=""
+            />
           </div>
           <div className="mt-4 flex gap-5 items-center">
             <h3>Цвет</h3>

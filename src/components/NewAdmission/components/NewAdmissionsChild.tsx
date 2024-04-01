@@ -16,7 +16,7 @@ interface IProps {
 //vwfgef
 function NewAdmissionsChild({ images, price, colors, id, rating }: IProps) {
   const userJwt = Cookies.get("jwt");
-  const [basketId, setBAsketID] = useState(null);
+  const [basketId, setBAsketID] = useState<number | null>(null);
   console.log(userJwt);
 
   // useEffect(() => {
@@ -32,7 +32,7 @@ function NewAdmissionsChild({ images, price, colors, id, rating }: IProps) {
     <div
       data-aos="zoom-in-up"
       data-aos-duration={`${id * 1300}`}
-      onClick={() => nav("/product/1")}
+      onClick={() => nav(`/product/${id}`)}
       className="newAdmissions__content1-child"
     >
       <div className="flex justify-around items-center mt-3">
@@ -40,7 +40,7 @@ function NewAdmissionsChild({ images, price, colors, id, rating }: IProps) {
         {/* <img src={star} alt="" /> */}
         <Star count={rating} />
       </div>
-      <div className="flex flex-col items-center mt-3 max-h-[40px]">
+      <div className="flex flex-col items-center mt-3 h-[200px]">
         {images[0] == 1 || images[0].length > 15 ? (
           <img
             src={`https://takmatov.pythonanywhere.com/${images[0]}`}

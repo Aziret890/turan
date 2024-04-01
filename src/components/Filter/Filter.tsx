@@ -15,22 +15,26 @@ import {
   MenuOptionGroup,
   MenuDivider,
 } from "@chakra-ui/react";
-const config: string[] = [
-  "Все категории",
-  "Телефоны",
-  "Mac",
-  "Watch",
-  "Аксессуары ",
-];
-const config1: string[] = [
-  "Все",
-  "IPhone 14",
-  "IPhone 14 Pro",
-  "IPhone 14 Pro Max",
-  "Watch Series 8",
-  "AirPods",
-  "Аксессуары",
-];
+interface IPropsConfig {
+  id: number;
+  title: string;
+}
+// const config: string[] = [
+//   "Все категории",
+//   "Телефоны",
+//   "Mac",
+//   "Watch",
+//   "Аксессуары ",
+// ];
+// const config1: string[] = [
+//   "Все",
+//   "IPhone 14",
+//   "IPhone 14 Pro",
+//   "IPhone 14 Pro Max",
+//   "Watch Series 8",
+//   "AirPods",
+//   "Аксессуары",
+// ];
 const config2: string[] = ["Все", "128 ГБ", "256 ГБ", "512 ГБ", "1 ТБ"];
 
 const config3: string[] = [
@@ -42,8 +46,10 @@ const config3: string[] = [
   "фиолетовый",
 ];
 function Filter() {
+  const [configId, setConfigId] = useState<number>(1);
+  const [config, setConfig] = useState<object[]>([]);
   const [valueDrop, setValueDrop] = useState<string>("Все");
-  const [valueDropPrice, setValueDropPrice] = useState<number | null>(null);
+  const [valueDropPrice, setValueDropPrice] = useState<number | null>(1);
 
   const [data, setData] = useState<any[]>([]);
   const [open, setOpen] = useState(false);
@@ -106,11 +112,21 @@ function Filter() {
           console.log("Response:", res);
         });
       }
+      // axios(
+      //   `https://takmatov.pythonanywhere.com/products?category=&price=${valueDropPrice}`
+      // ).then((res) => setData(res.data));
+    }
+    if (data.length < 1) {
+      axios(`https://takmatov.pythonanywhere.com/models`).then((res) =>
+        setConfig(res.data)
+      );
       axios(
-        `https://takmatov.pythonanywhere.com/products?category=&price=${valueDropPrice}`
+        `https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=&model=${configId}`
       ).then((res) => setData(res.data));
     }
-  }, [valueDrop, valueDropPrice]);
+  }, [valueDrop, valueDropPrice, configId]);
+  console.log(data);
+
   const config1: string[] = [
     "Все",
     "IPhone",
@@ -122,7 +138,6 @@ function Filter() {
     "Honor",
     "Redmi",
   ];
-  console.log("value", valueDropPrice);
 
   return (
     <div className="container">
@@ -130,19 +145,19 @@ function Filter() {
         <div className="filter__content__block">
           <nav>
             <Menu isLazy>
-              <MenuButton>{"модель"}</MenuButton>
+              <MenuButton>{"модель телефона"}</MenuButton>
               <MenuList
                 zIndex={"10"}
                 background={"white"}
                 padding={"10px 13px"}
               >
-                {config.map((el, inx) => (
+                {config?.map((el, inx) => (
                   <MenuItem
-                    onClick={() => setValueDrop(el)}
+                    onClick={() => setConfigId(el.id)}
                     key={inx}
                     marginBottom={"15px"}
                   >
-                    {el}
+                    {el.title}
                   </MenuItem>
                 ))}
               </MenuList>

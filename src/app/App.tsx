@@ -7,11 +7,11 @@ import axios from "axios";
 import { useEffect } from "react";
 
 function App() {
-  useEffect(() => {
-    axios
-      .get("https://takmatov.pythonanywhere.com/baskets")
-      .then((res) => console.log(res.data));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://takmatov.pythonanywhere.com/baskets")
+  //     .then((res) => console.log(res.data));
+  // }, []);
   return (
     <>
       <Header />

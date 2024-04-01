@@ -10,11 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "@reduxjs/toolkit": "^2.2.2",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
     "clsx": "^2.1.0",
-    "framer-motion": "^11.0.18",
+    "framer-motion": "^11.0.24",
     "gsap": "^3.12.5",
     "js-cookie": "^3.0.5",
     "react": "^18.2.0",

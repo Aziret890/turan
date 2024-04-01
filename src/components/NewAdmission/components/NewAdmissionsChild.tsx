@@ -19,14 +19,14 @@ function NewAdmissionsChild({ images, price, colors, id, rating }: IProps) {
   const [basketId, setBAsketID] = useState(null);
   console.log(userJwt);
 
-  useEffect(() => {
-    if (basketId != null) {
-      axios.post(
-        `https://takmatov.pythonanywhere.com/addProductToBasket/${basketId}`,
-        userJwt
-      );
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (basketId != null) {
+  //     axios.post(
+  //       `https://takmatov.pythonanywhere.com/addProductToBasket/${basketId}`,
+  //       userJwt
+  //     );
+  //   }
+  // }, []);
   const nav = useNavigate();
   return (
     <div

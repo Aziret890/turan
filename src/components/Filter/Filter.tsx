@@ -15,8 +15,14 @@ import {
   MenuOptionGroup,
   MenuDivider,
 } from "@chakra-ui/react";
-const config: [] = ["Все категории", "Телефоны", "Mac", "Watch", "Аксессуары "];
-const config1: [] = [
+const config: string[] = [
+  "Все категории",
+  "Телефоны",
+  "Mac",
+  "Watch",
+  "Аксессуары ",
+];
+const config1: string[] = [
   "Все",
   "IPhone 14",
   "IPhone 14 Pro",
@@ -25,12 +31,19 @@ const config1: [] = [
   "AirPods",
   "Аксессуары",
 ];
-const config2 = ["Все", "128 ГБ", "256 ГБ", "512 ГБ", "1 ТБ"];
+const config2: string[] = ["Все", "128 ГБ", "256 ГБ", "512 ГБ", "1 ТБ"];
 
-const config3 = ["Все", "красный", "белый", "черный", "синий", "фиолетовый"];
+const config3: string[] = [
+  "Все",
+  "красный",
+  "белый",
+  "черный",
+  "синий",
+  "фиолетовый",
+];
 function Filter() {
   const [valueDrop, setValueDrop] = useState<string>("Все");
-  const [valueDropPrice, setValueDropPrice] = useState<string>("Все");
+  const [valueDropPrice, setValueDropPrice] = useState<number | null>(null);
 
   const [data, setData] = useState<any[]>([]);
   const [open, setOpen] = useState(false);
@@ -52,9 +65,38 @@ function Filter() {
         case "Аксессуары":
           url = "https://takmatov.pythonanywhere.com/products?category=4";
           break;
-          case "Аксессуары":
-            url = "https://takmatov.pythonanywhere.com/products?category=4";
-            break;
+        case "IPhone":
+          url =
+            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=1";
+          break;
+        case "Galaxy":
+          url =
+            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=2";
+          break;
+        case "Mac":
+          url =
+            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=3";
+          break;
+        case "Watch":
+          url =
+            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=4";
+          break;
+        case "AirPods":
+          url =
+            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=5";
+          break;
+        case "Аксессуары":
+          url =
+            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=6";
+          break;
+        case "Honor":
+          url =
+            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=7";
+          break;
+        case "Redmi":
+          url =
+            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=8";
+          break;
         default:
           break;
       }
@@ -64,14 +106,23 @@ function Filter() {
           console.log("Response:", res);
         });
       }
-    } else if (valueDropPrice) {
-      axios
-        .get(
-          `https://takmatov.pythonanywhere.com/products?category=&price=${valueDropPrice}`
-        )
-        .then((res) => setData(res.data));
+      axios(
+        `https://takmatov.pythonanywhere.com/products?category=&price=${valueDropPrice}`
+      ).then((res) => setData(res.data));
     }
   }, [valueDrop, valueDropPrice]);
+  const config1: string[] = [
+    "Все",
+    "IPhone",
+    "Galaxy",
+    "Mac",
+    "Watch",
+    "AirPods",
+    "Аксессуары",
+    "Honor",
+    "Redmi",
+  ];
+  console.log("value", valueDropPrice);
 
   return (
     <div className="container">
@@ -160,13 +211,17 @@ function Filter() {
         <div data-aos="fade-left" className="modal__block">
           <div className="flex justify-between items-center">
             <h2>Фильтры</h2>
-            <img onClick={() => setOpen(!open)} src={close} alt="" />
+            <img
+              onClick={() => (setOpen(!open), setValueDropPrice(null))}
+              src={close}
+              alt=""
+            />
           </div>
           <div>
             <h3>Цена, Сом</h3>
             <div className="flex flex-col gap-5">
               <input
-                onChange={(e) => setValueDropPrice(e.target.value)}
+                onChange={(e) => setValueDropPrice(+e.target.value)}
                 type="number"
                 placeholder="price"
                 className="modal__block-inp"
@@ -177,15 +232,25 @@ function Filter() {
         </div>
       ) : null}
       <div>
-        {data?.map((el) => (
-          <NewAdmissionsChild
-            id={el.id}
-            images={el.images}
-            price={el.price}
-            colors={el.colors}
-            rating={el.rating}
-          />
-        ))}
+        {valueDropPrice < 0
+          ? data?.map((el) => (
+              <NewAdmissionsChild
+                id={el.id}
+                images={el.images}
+                price={el.price}
+                colors={el.colors}
+                rating={el.rating}
+              />
+            ))
+          : data?.map((el) => (
+              <NewAdmissionsChild
+                id={el.id}
+                images={el.images}
+                price={el.price}
+                colors={el.colors}
+                rating={el.rating}
+              />
+            ))}
       </div>
     </div>
   );

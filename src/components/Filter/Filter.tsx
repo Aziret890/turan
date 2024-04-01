@@ -5,75 +5,162 @@ import close from "../../shared/svg/close.svg";
 import "./styles.scss";
 import axios from "axios";
 import NewAdmissionsChild from "../NewAdmission/components/NewAdmissionsChild";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+} from "@chakra-ui/react";
+const config: [] = ["Все категории", "Телефоны", "Mac", "Watch", "Аксессуары "];
+const config1: [] = [
+  "Все",
+  "IPhone 14",
+  "IPhone 14 Pro",
+  "IPhone 14 Pro Max",
+  "Watch Series 8",
+  "AirPods",
+  "Аксессуары",
+];
+const config2 = ["Все", "128 ГБ", "256 ГБ", "512 ГБ", "1 ТБ"];
+
+const config3 = ["Все", "красный", "белый", "черный", "синий", "фиолетовый"];
 function Filter() {
-  const [valueDrop, setValueDrop] = useState({
-    model: "",
-    volume: "",
-    color: "",
-    category: "",
-  });
+  const [valueDrop, setValueDrop] = useState<string>("Все");
+  const [valueDropPrice, setValueDropPrice] = useState<string>("Все");
+
   const [data, setData] = useState<any[]>([]);
   const [open, setOpen] = useState(false);
-  const config = {
-    initialSelectedItem: "Все",
-    storage: "first",
-    items: ["Все", "IPhone", "Mac", "IPad", "Watch", "AirPods", "Аксессуары "],
-    type: "category",
-    func: onChangeDrop,
-  };
-  const config1 = {
-    storage: "second",
-    initialSelectedItem: "Все",
-    items: [
-      "Все",
-      "IPhone 14",
-      "IPhone 14 Pro",
-      "IPhone 14 Pro Max",
-      "Watch Series 8",
-      "AirPods",
-      "Аксессуары ",
-    ],
-    type: "model",
-    func: onChangeDrop,
-  };
-  const config2 = {
-    storage: "third",
-    initialSelectedItem: "Все",
-    items: ["Все", "128 ГБ", "256 ГБ", "512 ГБ", "1 ТБ"],
-    type: "volume",
-    func: onChangeDrop,
-  };
-  const config3 = {
-    storage: "four",
-    initialSelectedItem: "Все",
-    type: "color",
-    items: ["Все", "красный", "белый", "черный", "синий", "фиолетовый"],
-    func: onChangeDrop,
-  };
-
-  function onChangeDrop(d: string, type: string) {
-    setValueDrop((prev) => ({
-      ...prev,
-      [type.toLowerCase()]: d.toLowerCase(),
-    }));
-  }
-
   useEffect(() => {
-
-    axios(
-      "https://takmatov.pythonanywhere.com/products?category=4&price=&brand_products=&model=&brand_products__brand"
-    ).then((res) => setData(res.data));
-  }, []);
+    switch (valueDrop) {
+      case "Все категории":
+        axios(`https://takmatov.pythonanywhere.com/products?category=1`).then(
+          (res) => {
+            setData(res.data), console.log("fvmqwp[", res);
+          }
+        );
+        break;
+      case "Телефоны":
+        axios(`https://takmatov.pythonanywhere.com/products?category=1`).then(
+          (res) => {
+            setData(res.data), console.log("fvmqwp[", res);
+          }
+        );
+        break;
+      case "Mac":
+        axios(`https://takmatov.pythonanywhere.com/products?category=2`).then(
+          (res) => {
+            setData(res.data), console.log("fvmqwp[", res);
+          }
+        );
+        break;
+      case "Аксессуары":
+        axios(`https://takmatov.pythonanywhere.com/products?category=4`).then(
+          (res) => {
+            setData(res.data), console.log("fvmqwp[", res);
+          }
+        );
+      case "Watch":
+        axios(`https://takmatov.pythonanywhere.com/products?category=3`).then(
+          (res) => {
+            setData(res.data), console.log("fvmqwp[", res);
+          }
+        );
+        break;
+      default:
+        break;
+    }
+    if (valueDropPrice != "") {
+      axios(
+        `https://takmatov.pythonanywhere.com/products?category&brand_products__brand=${valueDropPrice}`
+      ).then((res) => {
+        setData(res.data), console.log("fvmqwp[", res);
+      });
+    }
+  }, [valueDrop]);
+  console.log(valueDrop);
 
   return (
     <div className="container">
       <div className="filter__content mt-[100px]">
         <div className="filter__content__block">
           <nav>
-            <DropDown {...config} />
-            <DropDown {...config1} />
-            <DropDown {...config2} />
-            <DropDown {...config3} />
+            <Menu isLazy>
+              <MenuButton>{"модель"}</MenuButton>
+              <MenuList
+                zIndex={"10"}
+                background={"white"}
+                padding={"10px 13px"}
+              >
+                {config.map((el, inx) => (
+                  <MenuItem
+                    onClick={() => setValueDrop(el)}
+                    key={inx}
+                    marginBottom={"15px"}
+                  >
+                    {el}
+                  </MenuItem>
+                ))}
+              </MenuList>
+            </Menu>
+            <Menu isLazy>
+              <MenuButton>{"Модель"}</MenuButton>
+              <MenuList
+                zIndex={"10"}
+                background={"white"}
+                padding={"10px 13px"}
+              >
+                {config1.map((el, inx) => (
+                  <MenuItem
+                    onClick={() => setValueDrop(el)}
+                    key={inx}
+                    marginBottom={"15px"}
+                  >
+                    {el}
+                  </MenuItem>
+                ))}
+              </MenuList>
+            </Menu>
+            <Menu isLazy>
+              <MenuButton>{"Объем"}</MenuButton>
+              <MenuList
+                zIndex={"10"}
+                background={"white"}
+                padding={"10px 13px"}
+              >
+                {config2.map((el, inx) => (
+                  <MenuItem
+                    onClick={() => setValueDrop(el)}
+                    key={inx}
+                    marginBottom={"15px"}
+                  >
+                    {el}
+                  </MenuItem>
+                ))}
+              </MenuList>
+            </Menu>
+            <Menu isLazy>
+              <MenuButton>{"Цвет"}</MenuButton>
+              <MenuList
+                zIndex={"10"}
+                background={"white"}
+                padding={"10px 13px"}
+              >
+                {config3.map((el, inx) => (
+                  <MenuItem
+                    onClick={() => setValueDrop(el)}
+                    key={inx}
+                    marginBottom={"15px"}
+                  >
+                    {el}
+                  </MenuItem>
+                ))}
+              </MenuList>
+            </Menu>
+
             <button>Цена</button>
             <button onClick={() => setOpen(!open)}>Все</button>
           </nav>
@@ -89,20 +176,13 @@ function Filter() {
             <h3>Цена, Сом</h3>
             <div className="flex flex-col gap-5">
               <input
+              onChange={(e)=>setValueDropPrice(e.target.value)}
                 type="number"
-                placeholder="min price"
-                className="modal__block-inp"
-              />
-              <input
-                type="number"
-                placeholder="max price"
+                placeholder="price"
                 className="modal__block-inp"
               />
             </div>
-            <div className="flex flex-col gap-[30px]">
-              <DropDown {...config1} />
-              <DropDown {...config3} />
-            </div>
+            <div className="flex flex-col gap-[30px]">vneo</div>
           </div>
         </div>
       ) : null}

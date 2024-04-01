@@ -42,7 +42,7 @@ const mainRoutes = [
   {
     privates: false,
     Page: NewsDetail,
-    path: "/news/:newsId",
+    path: "/news/newsId",
   },
   {
     privates: false,

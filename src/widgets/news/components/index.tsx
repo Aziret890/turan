@@ -6,6 +6,7 @@ interface IProps {
   images: string;
   info: string;
   infoDetal: string;
+  id?: number;
 }
 function NewComponetns() {
   const nav = useNavigate();
@@ -13,6 +14,7 @@ function NewComponetns() {
     {
       images: newImages,
       info: "Объявляем о сотрудничестве с крупным мировыми брендами.",
+      id: 1,
       infoDetal:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. At rem velit explicabomagni, saepe optio esse odit accusantium perferendis molestias, accusamuscupiditate quaerat facere alias harum voluptates quis nihil tempore!",
     },

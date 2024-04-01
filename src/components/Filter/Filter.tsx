@@ -34,54 +34,44 @@ function Filter() {
 
   const [data, setData] = useState<any[]>([]);
   const [open, setOpen] = useState(false);
+
   useEffect(() => {
-    switch (valueDrop) {
-      case "Все категории":
-        axios(`https://takmatov.pythonanywhere.com/products?category=1`).then(
-          (res) => {
-            setData(res.data), console.log("fvmqwp[", res);
-          }
-        );
-        break;
-      case "Телефоны":
-        axios(`https://takmatov.pythonanywhere.com/products?category=1`).then(
-          (res) => {
-            setData(res.data), console.log("fvmqwp[", res);
-          }
-        );
-        break;
-      case "Mac":
-        axios(`https://takmatov.pythonanywhere.com/products?category=2`).then(
-          (res) => {
-            setData(res.data), console.log("fvmqwp[", res);
-          }
-        );
-        break;
-      case "Аксессуары":
-        axios(`https://takmatov.pythonanywhere.com/products?category=4`).then(
-          (res) => {
-            setData(res.data), console.log("fvmqwp[", res);
-          }
-        );
-      case "Watch":
-        axios(`https://takmatov.pythonanywhere.com/products?category=3`).then(
-          (res) => {
-            setData(res.data), console.log("fvmqwp[", res);
-          }
-        );
-        break;
-      default:
-        break;
+    if (valueDrop.length > 0) {
+      let url = "";
+      switch (valueDrop) {
+        case "Все категории":
+        case "Телефоны":
+          url = "https://takmatov.pythonanywhere.com/products?category=1";
+          break;
+        case "Mac":
+          url = "https://takmatov.pythonanywhere.com/products?category=2";
+          break;
+        case "Watch":
+          url = "https://takmatov.pythonanywhere.com/products?category=3";
+          break;
+        case "Аксессуары":
+          url = "https://takmatov.pythonanywhere.com/products?category=4";
+          break;
+          case "Аксессуары":
+            url = "https://takmatov.pythonanywhere.com/products?category=4";
+            break;
+        default:
+          break;
+      }
+      if (url) {
+        axios.get(url).then((res) => {
+          setData(res.data);
+          console.log("Response:", res);
+        });
+      }
+    } else if (valueDropPrice) {
+      axios
+        .get(
+          `https://takmatov.pythonanywhere.com/products?category=&price=${valueDropPrice}`
+        )
+        .then((res) => setData(res.data));
     }
-    if (valueDropPrice != "") {
-      axios(
-        `https://takmatov.pythonanywhere.com/products?category&brand_products__brand=${valueDropPrice}`
-      ).then((res) => {
-        setData(res.data), console.log("fvmqwp[", res);
-      });
-    }
-  }, [valueDrop]);
-  console.log(valueDrop);
+  }, [valueDrop, valueDropPrice]);
 
   return (
     <div className="container">
@@ -176,7 +166,7 @@ function Filter() {
             <h3>Цена, Сом</h3>
             <div className="flex flex-col gap-5">
               <input
-              onChange={(e)=>setValueDropPrice(e.target.value)}
+                onChange={(e) => setValueDropPrice(e.target.value)}
                 type="number"
                 placeholder="price"
                 className="modal__block-inp"

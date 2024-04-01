@@ -205,7 +205,11 @@ function DetalProduct() {
             </div>
             <div className="detalProduct__content__left-review">
               <h1>Описание</h1>
-              <p>{product?.description}</p>
+              <p>
+                {product?.description?.length > 100
+                  ? product?.description.slice(0, 356)
+                  : product?.description}
+              </p>
             </div>
           </div>
           <div className="detalProduct__content__right">

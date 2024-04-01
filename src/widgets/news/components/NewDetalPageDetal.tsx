@@ -1,5 +1,5 @@
 import React from "react";
-import newImages from "../../../shared/images/newImages2.png";
+import newImages from "../../../shared/images/newsNewsId.png";
 import "../styles.scss";
 function NewDetalPageDetal() {
   const data = [
@@ -15,12 +15,7 @@ function NewDetalPageDetal() {
       <div className="container">
         <h3>Главная / Новости/{data[0].info}</h3>
         <div className="new__detal__content">
-          <img
-            src={
-              "https://s3-alpha-sig.figma.com/img/5d66/bd7d/224205c18d523d85e93b5b7b35398f32?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qEst2~ijCTqvr3cNx9h0c9SnTVGVCOPWy~rHDqti5s9UigJh8BiH66pI3cSRZoua4YAVVkR79Uw~N4xfrAe6~sweNMHBjEx2JzPmtEHkO0TutNdlxQx9~0j1u1JUFwsmqq5ddNnlgofouJtGlAaSAjzqsIBh-K3O27p8a8DDKuYMqcXnVDVm7FQkTnDN7IY060O2-bh~s1jd15H-1~zQ420Vu3ajNZe4Rw-xtXcXDvENtFqWhTi1OXd12Qmb8F~abScLowp9YLrNA3uz-5xZiJqR8RFTvQnDCYl6Dd5neeKAvNOKgpdsUgEXtXmfteC4Fd4nhzYyx6uUeyVM~DeChw__"
-            }
-            alt="images not found"
-          />
+          <img src={newImages} alt="images not found" />
           <h1 className="text-center">{data[0].info}</h1>
           <p>{data[0].infoDetal}</p>
         </div>

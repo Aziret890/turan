@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../store";
-import { useEffect } from "react";
+import { useActions } from "../../hooks/useActions";
 
 interface IProps {
   Page: () => JSX.Element;
@@ -8,22 +9,19 @@ interface IProps {
 }
 
 export default function ProtectedRoute({ Page, privates }: IProps) {
-  const { currentUser } = useAppSelector((s) => s.user);
+  const { currentUser } = useAppSelector((state) => state.user);
   const navigate = useNavigate();
-  const location = useLocation();
+  const { setUser } = useActions();
 
   useEffect(() => {
-    if (
-      currentUser !== null &&
-      (location.pathname === "/login" || location.pathname === "/registration")
-    ) {
-      navigate("/");
-    }
-
+    setUser();
+  }, []);
+  useEffect(() => {
+    if (privates && currentUser) return;
     if (privates && !currentUser) {
       navigate("/login");
     }
-  }, [currentUser, privates, location, navigate]);
+  }, [privates, currentUser]);
 
   return <Page />;
 }

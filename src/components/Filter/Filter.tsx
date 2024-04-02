@@ -29,7 +29,7 @@ const config4: string[] = [
 function Filter() {
   const [configId, setConfigId] = useState<number>(1);
   const [config, setConfig] = useState<ConfigItem[]>([]);
-  const [valueDrop, setValueDrop] = useState<string>("Все");
+  const [valueDrop, setValueDrop] = useState<string>("Все категории");
   const [valueDropPrice, setValueDropPrice] = useState<number | null>(null);
   const [data, setData] = useState<any[]>([]);
   const [open, setOpen] = useState<boolean>(false);
@@ -74,7 +74,6 @@ function Filter() {
         console.log("Response:", res);
       });
     }
-
     if (data.length < 1) {
       axios(`https://takmatov.pythonanywhere.com/models`).then((res) =>
         setConfig(res.data)
@@ -84,7 +83,6 @@ function Filter() {
       ).then((res) => setData(res.data));
     }
   };
-  console.log(data);
 
   return (
     <div className="container">
@@ -171,14 +169,16 @@ function Filter() {
         <div data-aos="fade-left" className="modal__block">
           <div className="flex justify-between items-center">
             <h2>Фильтры</h2>
-            <img
-              onClick={() => {
-                setOpen(false);
-                setValueDropPrice(null);
-              }}
-              src={close}
-              alt=""
-            />
+            <button>
+              <img
+                onClick={() => {
+                  setOpen(false);
+                  setValueDropPrice(null);
+                }}
+                src={close}
+                alt=""
+              />
+            </button>
           </div>
           <div>
             <h3>Цена, Сом</h3>
@@ -194,7 +194,7 @@ function Filter() {
           </div>
         </div>
       )}
-      <div>
+      <div className="flex flex-wrap items-start justify-center gap-10 my-5">
         {data.map((el) => (
           <NewAdmissionsChild
             key={el.id}

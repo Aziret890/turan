@@ -10,6 +10,7 @@ import { useAppSelector } from "../../store";
 
 const Header = memo(() => {
   const { currentUser } = useAppSelector((s) => s.user);
+
   return (
     <header className={c.header}>
       <div className={`container ${c.container}`}>
@@ -32,22 +33,18 @@ const Header = memo(() => {
         <div className={c.end}>
           <div className={c.endTop}>
             <NavLink
-              className={`link__items ${
-                currentUser === null ? c.disable : ""
-              } `}
+              className={`link__items ${currentUser ? c.disable : ""} `}
               to={"/favorites"}
             >
               <FavoriteIcon />
             </NavLink>
             <NavLink
-              className={`link__items ${
-                currentUser === null ? c.disable : ""
-              } `}
+              className={`link__items ${currentUser ? c.disable : ""} `}
               to={"/basket"}
             >
               <BasketIcon />
             </NavLink>
-            {currentUser === null ? (
+            {currentUser ? (
               <Link className="link__items" to={"/login"}>
                 <UserIcon />
               </Link>

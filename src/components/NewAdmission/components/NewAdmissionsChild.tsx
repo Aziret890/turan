@@ -12,7 +12,6 @@ interface IProps {
   colors?: string[];
   rating: number;
 }
-//vwfgef
 function NewAdmissionsChild({ images, price, colors, id, rating }: IProps) {
   const userJwt = Cookies.get("jwt");
   const [basketId, setBAsketID] = useState<number | null>(null);

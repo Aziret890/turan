@@ -64,6 +64,7 @@ function Filter() {
         url = "https://takmatov.pythonanywhere.com/products?category=4";
         break;
       default:
+        console.log("error in switch");
         break;
     }
 
@@ -83,6 +84,7 @@ function Filter() {
       ).then((res) => setData(res.data));
     }
   };
+  console.log(data);
 
   return (
     <div className="container">
@@ -98,7 +100,7 @@ function Filter() {
               >
                 {config4?.map((el) => (
                   <MenuItem
-                    onClick={() => (setValueDrop(el), setData([]))}
+                    onClick={() => setValueDrop(el)}
                     key={el}
                     marginBottom={"15px"}
                   >
@@ -116,7 +118,7 @@ function Filter() {
               >
                 {config2?.map((el) => (
                   <MenuItem
-                    onClick={() => (setValueDrop(el), setData([]))}
+                    onClick={() => setValueDrop(el)}
                     marginBottom={"15px"}
                   >
                     {el}
@@ -151,7 +153,7 @@ function Filter() {
               >
                 {config3?.map((el) => (
                   <MenuItem
-                    onClick={() => (setValueDrop(el), setData([]))}
+                    onClick={() => setValueDrop(el)}
                     marginBottom={"15px"}
                   >
                     {el}

@@ -1,40 +1,14 @@
-import { useEffect, useState } from "react";
-import "react-dropdown/style.css";
-import DropDown from "../../shared/ui/DropDown";
-import close from "../../shared/svg/close.svg";
+import React, { useEffect, useState } from "react";
 import "./styles.scss";
+import close from "../../shared/svg/close.svg";
 import axios from "axios";
 import NewAdmissionsChild from "../NewAdmission/components/NewAdmissionsChild";
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-} from "@chakra-ui/react";
-interface IPropsConfig {
+import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+
+interface ConfigItem {
   id: number;
   title: string;
 }
-// const config: string[] = [
-//   "Все категории",
-//   "Телефоны",
-//   "Mac",
-//   "Watch",
-//   "Аксессуары ",
-// ];
-// const config1: string[] = [
-//   "Все",
-//   "IPhone 14",
-//   "IPhone 14 Pro",
-//   "IPhone 14 Pro Max",
-//   "Watch Series 8",
-//   "AirPods",
-//   "Аксессуары",
-// ];
 const config2: string[] = ["Все", "128 ГБ", "256 ГБ", "512 ГБ", "1 ТБ"];
 
 const config3: string[] = [
@@ -45,77 +19,61 @@ const config3: string[] = [
   "синий",
   "фиолетовый",
 ];
+const config4: string[] = [
+  "Все категории",
+  "Телефоны",
+  "Mac",
+  "Watch",
+  "Аксессуары ",
+];
 function Filter() {
   const [configId, setConfigId] = useState<number>(1);
-  const [config, setConfig] = useState<object[]>([]);
+  const [config, setConfig] = useState<ConfigItem[]>([]);
   const [valueDrop, setValueDrop] = useState<string>("Все");
-  const [valueDropPrice, setValueDropPrice] = useState<number | null>(1);
-
+  const [valueDropPrice, setValueDropPrice] = useState<number | null>(null);
   const [data, setData] = useState<any[]>([]);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    if (valueDrop.length > 0) {
-      let url = "";
-      switch (valueDrop) {
-        case "Все категории":
-        case "Телефоны":
-          url = "https://takmatov.pythonanywhere.com/products?category=1";
-          break;
-        case "Mac":
-          url = "https://takmatov.pythonanywhere.com/products?category=2";
-          break;
-        case "Watch":
-          url = "https://takmatov.pythonanywhere.com/products?category=3";
-          break;
-        case "Аксессуары":
-          url = "https://takmatov.pythonanywhere.com/products?category=4";
-          break;
-        case "IPhone":
-          url =
-            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=1";
-          break;
-        case "Galaxy":
-          url =
-            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=2";
-          break;
-        case "Mac":
-          url =
-            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=3";
-          break;
-        case "Watch":
-          url =
-            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=4";
-          break;
-        case "AirPods":
-          url =
-            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=5";
-          break;
-        case "Аксессуары":
-          url =
-            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=6";
-          break;
-        case "Honor":
-          url =
-            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=7";
-          break;
-        case "Redmi":
-          url =
-            "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=8";
-          break;
-        default:
-          break;
-      }
-      if (url) {
-        axios.get(url).then((res) => {
-          setData(res.data);
-          console.log("Response:", res);
-        });
-      }
-      // axios(
-      //   `https://takmatov.pythonanywhere.com/products?category=&price=${valueDropPrice}`
-      // ).then((res) => setData(res.data));
+    fetchData();
+    console.log(valueDrop);
+    console.log(configId);
+  }, [valueDrop, valueDropPrice, configId]);
+
+  const fetchData = () => {
+    if (valueDrop == "Цена") {
+      setData([]);
+      return;
     }
+
+    let url = "";
+    switch (valueDrop) {
+      case "Все категории":
+        url = "https://takmatov.pythonanywhere.com/products";
+        break;
+      case "Телефоны":
+        url = "https://takmatov.pythonanywhere.com/products?category=1";
+        break;
+      case "Mac":
+        url = "https://takmatov.pythonanywhere.com/products?category=2";
+        break;
+      case "Watch":
+        url = "https://takmatov.pythonanywhere.com/products?category=3";
+        break;
+      case "Аксессуары":
+        url = "https://takmatov.pythonanywhere.com/products?category=4";
+        break;
+      default:
+        break;
+    }
+
+    if (url) {
+      axios.get(url).then((res) => {
+        setData(res.data);
+        console.log("Response:", res);
+      });
+    }
+
     if (data.length < 1) {
       axios(`https://takmatov.pythonanywhere.com/models`).then((res) =>
         setConfig(res.data)
@@ -124,20 +82,7 @@ function Filter() {
         `https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=&model=${configId}`
       ).then((res) => setData(res.data));
     }
-  }, [valueDrop, valueDropPrice, configId]);
-  console.log(data);
-
-  const config1: string[] = [
-    "Все",
-    "IPhone",
-    "Galaxy",
-    "Mac",
-    "Watch",
-    "AirPods",
-    "Аксессуары",
-    "Honor",
-    "Redmi",
-  ];
+  };
 
   return (
     <div className="container">
@@ -151,10 +96,45 @@ function Filter() {
                 background={"white"}
                 padding={"10px 13px"}
               >
-                {config?.map((el, inx) => (
+                {config4?.map((el) => (
                   <MenuItem
-                    onClick={() => setConfigId(el.id)}
-                    key={inx}
+                    onClick={() => (setValueDrop(el), setData([]))}
+                    key={el}
+                    marginBottom={"15px"}
+                  >
+                    {el}
+                  </MenuItem>
+                ))}
+              </MenuList>
+            </Menu>
+            <Menu isLazy>
+              <MenuButton>{"память"}</MenuButton>
+              <MenuList
+                zIndex={"10"}
+                background={"white"}
+                padding={"10px 13px"}
+              >
+                {config2?.map((el) => (
+                  <MenuItem
+                    onClick={() => (setValueDrop(el), setData([]))}
+                    marginBottom={"15px"}
+                  >
+                    {el}
+                  </MenuItem>
+                ))}
+              </MenuList>
+            </Menu>
+            <Menu isLazy>
+              <MenuButton>{"модель"}</MenuButton>
+              <MenuList
+                zIndex={"10"}
+                background={"white"}
+                padding={"10px 13px"}
+              >
+                {config?.map((el) => (
+                  <MenuItem
+                    onClick={() => (setConfigId(el.id), setData([]))}
+                    key={el.id}
                     marginBottom={"15px"}
                   >
                     {el.title}
@@ -163,16 +143,15 @@ function Filter() {
               </MenuList>
             </Menu>
             <Menu isLazy>
-              <MenuButton>{"Модель"}</MenuButton>
+              <MenuButton>{"Цвета"}</MenuButton>
               <MenuList
                 zIndex={"10"}
                 background={"white"}
                 padding={"10px 13px"}
               >
-                {config1.map((el, inx) => (
+                {config3?.map((el) => (
                   <MenuItem
-                    onClick={() => setValueDrop(el)}
-                    key={inx}
+                    onClick={() => (setValueDrop(el), setData([]))}
                     marginBottom={"15px"}
                   >
                     {el}
@@ -180,54 +159,21 @@ function Filter() {
                 ))}
               </MenuList>
             </Menu>
-            <Menu isLazy>
-              <MenuButton>{"Объем"}</MenuButton>
-              <MenuList
-                zIndex={"10"}
-                background={"white"}
-                padding={"10px 13px"}
-              >
-                {config2.map((el, inx) => (
-                  <MenuItem
-                    onClick={() => setValueDrop(el)}
-                    key={inx}
-                    marginBottom={"15px"}
-                  >
-                    {el}
-                  </MenuItem>
-                ))}
-              </MenuList>
-            </Menu>
-            <Menu isLazy>
-              <MenuButton>{"Цвет"}</MenuButton>
-              <MenuList
-                zIndex={"10"}
-                background={"white"}
-                padding={"10px 13px"}
-              >
-                {config3.map((el, inx) => (
-                  <MenuItem
-                    onClick={() => setValueDrop(el)}
-                    key={inx}
-                    marginBottom={"15px"}
-                  >
-                    {el}
-                  </MenuItem>
-                ))}
-              </MenuList>
-            </Menu>
-
             <button>Цена</button>
             <button onClick={() => setOpen(!open)}>Все</button>
+            {/* Other Menu components for different filters */}
           </nav>
         </div>
       </div>
-      {open == true ? (
+      {open && (
         <div data-aos="fade-left" className="modal__block">
           <div className="flex justify-between items-center">
             <h2>Фильтры</h2>
             <img
-              onClick={() => (setOpen(!open), setValueDropPrice(null))}
+              onClick={() => {
+                setOpen(false);
+                setValueDropPrice(null);
+              }}
               src={close}
               alt=""
             />
@@ -245,27 +191,18 @@ function Filter() {
             <div className="flex flex-col gap-[30px]">vneo</div>
           </div>
         </div>
-      ) : null}
+      )}
       <div>
-        {valueDropPrice < 0
-          ? data?.map((el) => (
-              <NewAdmissionsChild
-                id={el.id}
-                images={el.images}
-                price={el.price}
-                colors={el.colors}
-                rating={el.rating}
-              />
-            ))
-          : data?.map((el) => (
-              <NewAdmissionsChild
-                id={el.id}
-                images={el.images}
-                price={el.price}
-                colors={el.colors}
-                rating={el.rating}
-              />
-            ))}
+        {data.map((el) => (
+          <NewAdmissionsChild
+            key={el.id}
+            id={el.id}
+            images={el.images}
+            price={el.price}
+            colors={el.colors}
+            rating={el.rating}
+          />
+        ))}
       </div>
     </div>
   );

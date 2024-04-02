@@ -4,7 +4,6 @@ import basket from "../../../shared/svg/basket.svg";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Star/Star";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Cookies from "js-cookie";
 interface IProps {
   id: number;

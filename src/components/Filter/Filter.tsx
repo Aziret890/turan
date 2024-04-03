@@ -25,6 +25,7 @@ const config4: string[] = [
   "Mac",
   "Watch",
   "Аксессуары ",
+  "Apple",
 ];
 function Filter() {
   const [configId, setConfigId] = useState<number>(1);
@@ -62,6 +63,10 @@ function Filter() {
         break;
       case "Аксессуары":
         url = "https://takmatov.pythonanywhere.com/products?category=4";
+        break;
+      case "Apple":
+        url =
+          "https://takmatov.pythonanywhere.com/products?category=&price=&brand_products=&model=&brand_products__brand=1";
         break;
       default:
         console.log("error in switch");
